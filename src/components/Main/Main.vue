@@ -55,8 +55,8 @@
   </header>
   <main :class="{ show: wechatQrcodeImg && alipayQrcodeImg }">
     <div class="qr-main" :class="{ nobg: !themeStatus }" ref="qrcodeDom">
-      <img class="wechat-qr" :src="wechatQrcodeImg" />
-      <img class="alipay-qr" :src="alipayQrcodeImg" />
+      <img class="wechat-qr" :src="wechatQrcodeImg" crossorigin="anonymous" />
+      <img class="alipay-qr" :src="alipayQrcodeImg" crossorigin="anonymous" />
     </div>
     <t-button theme="success" class="download-qrcode" :onClick="downloadQrcode">
       下载二维码
@@ -176,7 +176,7 @@ const drawQR = async (qrValue: string, hide: boolean = false) => {
 
 // 下载二维码
 const downloadQrcode = async () => {
-  const canvas = await html2canvas(qrcodeDom.value)
+  const canvas = await html2canvas(qrcodeDom.value, { useCORS: true })
   const dataURL = canvas.toDataURL('image/png')
   const link = document.createElement('a')
   link.href = dataURL
