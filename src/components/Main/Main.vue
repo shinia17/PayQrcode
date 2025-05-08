@@ -99,7 +99,9 @@ const wechatChange = async (v: any) => {
   wechatFileList.value = v && v.length ? v[0].raw : wechatFileList.value
   if (!wechatFileList.value) return
   const res = await loadImg(wechatFileList.value)
-  if (!res || !String(res).includes('wxp://'))
+  console.log(res)
+
+  if (!res || (!String(res).includes('wxp://') && !String(res).includes('weixin.qq.com')))
     return NotifyPlugin.error({
       title: 'Error',
       content: '请上传正确的 微信 收款码',

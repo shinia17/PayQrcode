@@ -37,12 +37,11 @@
           <p>⚠️全程离线运行，二维码解析合并无任何更改，且项目开源，请放心食用！</p>
         </template>
       </t-alert>
+      <t-alert theme="warning" message="请尽量把非二维码区域裁剪后上传，以提升识别准确性！" />
     </t-space>
     <Main />
   </main>
 </template>
 <script lang="ts" setup>
-// import Header from '@/components/Header/Header.vue'
 import Main from '@/components/Main/Main.vue'
-// import Footer from '@/components/Footer/Footer.vue'
 </script>
