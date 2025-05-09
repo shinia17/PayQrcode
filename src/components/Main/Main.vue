@@ -44,8 +44,12 @@
         </t-input-adornment>
       </div>
       <div class="item flex">
-        <span class="title">美化</span>
-        <t-switch v-model="themeStatus" />
+        <t-radio-group size="small" v-model="themeStatus">
+          <t-radio-button value="none">默认</t-radio-button>
+          <t-radio-button value="theme_a">主题A</t-radio-button>
+          <t-radio-button value="theme_b">主题B</t-radio-button>
+          <t-radio-button value="theme_c">主题C</t-radio-button>
+        </t-radio-group>
       </div>
     </section>
     <t-card class="alipay-hide">
@@ -54,7 +58,7 @@
     </t-card>
   </header>
   <main :class="{ show: wechatQrcodeImg && alipayQrcodeImg }">
-    <div class="qr-main" :class="{ nobg: !themeStatus }" ref="qrcodeDom">
+    <div class="qr-main" :class="themeStatus" ref="qrcodeDom">
       <img class="wechat-qr" :src="wechatQrcodeImg" crossorigin="anonymous" />
       <img class="alipay-qr" :src="alipayQrcodeImg" crossorigin="anonymous" />
     </div>
@@ -71,7 +75,7 @@ import QrCode from 'qrcode'
 import { NotifyPlugin } from 'tdesign-vue-next'
 
 //  是否美化
-const themeStatus = ref<boolean>(false)
+const themeStatus = ref<string>('none')
 
 //  上传支付宝收款码
 const alipayFileList = ref<any>()
@@ -99,8 +103,6 @@ const wechatChange = async (v: any) => {
   wechatFileList.value = v && v.length ? v[0].raw : wechatFileList.value
   if (!wechatFileList.value) return
   const res = await loadImg(wechatFileList.value)
-  console.log(res)
-
   if (!res || (!String(res).includes('wxp://') && !String(res).includes('weixin.qq.com')))
     return NotifyPlugin.error({
       title: 'Error',

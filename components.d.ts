@@ -17,6 +17,8 @@ declare module 'vue' {
     TInput: typeof import('tdesign-vue-next')['Input']
     TInputAdornment: typeof import('tdesign-vue-next')['InputAdornment']
     TLink: typeof import('tdesign-vue-next')['Link']
+    TRadioButton: typeof import('tdesign-vue-next')['RadioButton']
+    TRadioGroup: typeof import('tdesign-vue-next')['RadioGroup']
     TSlider: typeof import('tdesign-vue-next')['Slider']
     TSpace: typeof import('tdesign-vue-next')['Space']
     TSwitch: typeof import('tdesign-vue-next')['Switch']

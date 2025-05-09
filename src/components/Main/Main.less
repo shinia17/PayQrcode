@@ -53,45 +53,96 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 18.88px;
     width: 100%;
-    aspect-ratio: 1152/1909;
-    background: url('../../assets/images/bg.png') no-repeat;
-    background-size: contain;
+    aspect-ratio: 1/1;
+    background: none;
     overflow: hidden;
 
-    &.nobg {
-      padding: 18.88px;
+    &>img {
+      width: 100%;
       aspect-ratio: 1/1;
-      background: none;
+
+      &.alipay-qr {
+        position: absolute;
+        right: 18.88px;
+        top: auto;
+        bottom: 18.88px;
+        width: 50%;
+        transform: rotate(180deg);
+      }
+    }
+
+    &.theme_a {
+      padding: 0;
+      aspect-ratio: 529/573;
+      background: url('../../assets/images/theme_a.webp') no-repeat;
+      background-size: contain;
 
       &>img {
-        width: 100%;
+        width: 24%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: contain;
 
         &.alipay-qr {
-          right: 18.88px;
-          top: auto;
-          bottom: 18.88px;
-          width: 50%;
-          transform: rotate(180deg);
+          position: absolute;
+          right: 50%;
+          top: 50%;
+          width: 12%;
+          height: auto;
+          transform: translate(100%, 0) rotate(180deg);
         }
       }
     }
 
-    &>img {
-      width: 62%;
-      height: auto;
-      aspect-ratio: 1/1;
-      object-fit: contain;
+    &.theme_b {
+      padding: 0;
+      aspect-ratio: 1152/1909;
+      background: url('../../assets/images/theme_b.webp') no-repeat;
+      background-size: contain;
 
-      &.alipay-qr {
-        position: absolute;
-        right: 50%;
-        top: 50%;
-        width: 31%;
+      &>img {
+        width: 62%;
         height: auto;
-        transform: translate(100%, 0) rotate(180deg);
+        aspect-ratio: 1/1;
+        object-fit: contain;
+
+        &.alipay-qr {
+          position: absolute;
+          right: 50%;
+          top: 50%;
+          width: 31%;
+          height: auto;
+          transform: translate(100%, 0) rotate(180deg);
+        }
       }
     }
+
+    &.theme_c {
+      padding: 0;
+      aspect-ratio: 1152/1909;
+      background: url('../../assets/images/theme_c.webp') no-repeat;
+      background-size: contain;
+
+      &>img {
+        width: 62%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+
+        &.alipay-qr {
+          position: absolute;
+          right: 50%;
+          top: 50%;
+          width: 31%;
+          height: auto;
+          transform: translate(100%, 0) rotate(180deg);
+        }
+      }
+    }
+
+
   }
 
 }
