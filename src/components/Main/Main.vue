@@ -81,11 +81,13 @@ const themeStatus = ref<string>('none')
 const alipayFileList = ref<any>()
 const alipayVal = ref<any>()
 const alipayQrcodeImg = ref<string>()
+// 支付宝收款码白名单
+const alipayWhiteList = ['alipay.com']
 const alipayChange = async (v: any) => {
   alipayFileList.value = v && v.length ? v[0].raw : alipayFileList.value
   if (!alipayFileList.value) return
   const res = await loadImg(alipayFileList.value)
-  if (!res || !String(res).includes('alipay.com'))
+  if (!res || !alipayWhiteList.some((i: string) => String(res).toLowerCase().includes(i)))
     return NotifyPlugin.error({
       title: 'Error',
       content: '请上传正确的 支付宝 收款码',
@@ -99,11 +101,13 @@ const alipayChange = async (v: any) => {
 const wechatFileList = ref<any>()
 const wechatVal = ref<any>()
 const wechatQrcodeImg = ref<string>()
+// 微信收款码白名单
+const wechatWhiteList = ['wxp://', 'weixin.qq.com', 'wechatpay.cn']
 const wechatChange = async (v: any) => {
   wechatFileList.value = v && v.length ? v[0].raw : wechatFileList.value
   if (!wechatFileList.value) return
   const res = await loadImg(wechatFileList.value)
-  if (!res || (!String(res).includes('wxp://') && !String(res).includes('weixin.qq.com')))
+  if (!res || !wechatWhiteList.some((i: string) => String(res).toLowerCase().includes(i)))
     return NotifyPlugin.error({
       title: 'Error',
       content: '请上传正确的 微信 收款码',
