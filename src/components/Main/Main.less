@@ -121,8 +121,31 @@ main {
 
     &.theme_c {
       padding: 0;
-      aspect-ratio: 1152/1909;
+      aspect-ratio: 621/881;
       background: url('../../assets/images/theme_c.webp') no-repeat;
+      background-size: contain;
+
+      &>img {
+        width: 55%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+
+        &.alipay-qr {
+          position: absolute;
+          right: 50%;
+          top: 50%;
+          width: 27.5%;
+          height: auto;
+          transform: translate(100%, 0) rotate(180deg);
+        }
+      }
+    }
+
+    &.theme_d {
+      padding: 0;
+      aspect-ratio: 1152/1909;
+      background: url('../../assets/images/theme_d.webp') no-repeat;
       background-size: contain;
 
       &>img {
@@ -141,7 +164,6 @@ main {
         }
       }
     }
-
 
   }
 

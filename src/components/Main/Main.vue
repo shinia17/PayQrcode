@@ -49,6 +49,7 @@
           <t-radio-button value="theme_a">主题A</t-radio-button>
           <t-radio-button value="theme_b">主题B</t-radio-button>
           <t-radio-button value="theme_c">主题C</t-radio-button>
+          <t-radio-button value="theme_d">主题D</t-radio-button>
         </t-radio-group>
       </div>
     </section>
@@ -62,7 +63,25 @@
       <img class="wechat-qr" :src="wechatQrcodeImg" crossorigin="anonymous" />
       <img class="alipay-qr" :src="alipayQrcodeImg" crossorigin="anonymous" />
     </div>
-    <t-button theme="success" class="download-qrcode" :onClick="downloadQrcode">
+    <t-button theme="success" size="large" class="download-qrcode" :onClick="downloadQrcode">
+      <template #icon>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4" />
+          <path d="M12 13l0 9" />
+          <path d="M9 19l3 3l3 -3" />
+        </svg>
+      </template>
       下载二维码
     </t-button>
   </main>
